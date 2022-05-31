@@ -10,7 +10,7 @@ const uid2 = require("uid2");
 
 const User = require("../models/User");
 
-router.post("/signin", async (req, res) => {
+router.post("/signup", async (req, res) => {
   const { username, email, password } = req.fields;
   try {
     if (username && email && password) {

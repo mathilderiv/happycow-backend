@@ -13,8 +13,8 @@ const app = express();
 app.use(formidable());
 app.use(cors({ origin: "http://localhost:3000", credentials: true }));
 
-const signinRoute = require("./routes/signin");
-app.use(signinRoute);
+const signupRoute = require("./routes/signup");
+app.use(signupRoute);
 
 app.all("*", (req, res) => {
   res.status(400).json("route introuvable");
