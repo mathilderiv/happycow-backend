@@ -38,10 +38,10 @@ router.post("/signup", async (req, res) => {
             token: token,
           });
         } else {
-          res.status(400).json({ message: "Cet email existe déjà" });
+          res.status(409).json({ message: "Cet email existe déjà" });
         }
       } else {
-        res.status(400).json({ message: "Cet username existe déjà" });
+        res.status(409).json({ message: "Cet username existe déjà" });
       }
     } else {
       res.status(400).json({ message: "Vous devez compléter tous les champs" });

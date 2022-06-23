@@ -16,6 +16,9 @@ app.use(cors());
 const signupRoute = require("./routes/signup");
 app.use(signupRoute);
 
+const loginRoute = require("./routes/login");
+app.use(loginRoute);
+
 app.all("*", (req, res) => {
   res.status(404).json("Cette route n'existe pas");
 });
