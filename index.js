@@ -11,13 +11,13 @@ mongoose.connect(process.env.MONGODB_CONNECT).then(() => {
 
 const app = express();
 app.use(formidable());
-app.use(cors({ origin: "http://localhost:3000", credentials: true }));
+app.use(cors());
 
 const signupRoute = require("./routes/signup");
 app.use(signupRoute);
 
 app.all("*", (req, res) => {
-  res.status(400).json("route introuvable");
+  res.status(404).json("Cette route n'existe pas");
 });
 
 app.listen(process.env.PORT, () => {

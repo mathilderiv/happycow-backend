@@ -30,15 +30,13 @@ router.post("/signup", async (req, res) => {
             salt,
             hash,
           });
-
+          await newUser.save();
           res.json({
             id: newUser.id,
             email: email,
             username: username,
             token: token,
           });
-
-          await newUser.save();
         } else {
           res.status(400).json({ message: "Cet email existe déjà" });
         }
