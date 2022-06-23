@@ -19,8 +19,8 @@ router.post("/signup", async (req, res) => {
 
       if (!usernameExist) {
         if (!emailExist) {
-          const token = uid2(16);
-          const salt = uid2(16);
+          const token = uid2(64);
+          const salt = uid2(64);
           const hash = SHA256(password + salt).toString(encBase64);
 
           const newUser = new User({
@@ -31,7 +31,7 @@ router.post("/signup", async (req, res) => {
             hash,
           });
           await newUser.save();
-          res.json({
+          res.status(200).json({
             id: newUser.id,
             email: email,
             username: username,
